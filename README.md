@@ -29,5 +29,5 @@ camel-splunk-example
 ## Run Demo
 * Remember to compile and install the camel-splunk component into your local maven repo.
 The component can be found at https://github.com/pax95/camel-splunk 
-* Run "org.apache.camel.splunk.demo.MainApp" or run using maven -> mvn camel:run	
+* Run "org.apache.camel.splunk.demo.MainApp" or run using maven -> mvn clean compile exec:java	
 
