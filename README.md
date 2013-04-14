@@ -7,12 +7,14 @@ camel-splunk-example
 *  git clone https://github.com/pax95/camel-splunk-example.git
 
 ## Build
-
+* Remember to compile and install the camel-splunk component into your local maven repo. first.
+  The component can be found at https://github.com/pax95/camel-splunk 
 *  navigate to root directory and run mvn clean install
 
 ## Install Splunk
 
 *  Download from http://www.splunk.com/download
+*  Start splunk
 *  Browse to the Splunk Manager page and setup a new index called "camel-tweets"
 
 ## Create Twitter Application
@@ -27,7 +29,6 @@ camel-splunk-example
 * update Splunk server info in the properties file as well
 
 ## Run Demo
-* Remember to compile and install the camel-splunk component into your local maven repo.
-The component can be found at https://github.com/pax95/camel-splunk 
-* Run "org.apache.camel.splunk.demo.MainApp" or run using maven -> mvn clean compile exec:java	
+* Run "org.apache.camel.splunk.demo.MainApp" or run using maven -> mvn clean compile exec:java
+* Run "org.apache.camel.splunk.demo.SearchApp" to run the Splunk consumer that polls tweet events from Splunk	
 
