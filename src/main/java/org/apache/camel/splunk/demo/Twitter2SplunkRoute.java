@@ -6,16 +6,15 @@ import org.apache.camel.component.splunk.event.SplunkEvent;
 
 public class Twitter2SplunkRoute extends RouteBuilder {
 
-	@Override
-	public void configure() throws Exception {
-		PropertiesComponent pc = new PropertiesComponent();
-		pc.setLocation("classpath:splunk-demo.properties");
-		getContext().addComponent("properties", pc);
-		from(
-				"twitter://search?type=polling&keywords=#music&delay=10&consumerKey={{consumerKey}}&consumerSecret={{consumerSecret}}&accessToken={{accessToken}}&accessTokenSecret={{accessTokenSecret}}")
-				.log("${body}")
-				.convertBodyTo(SplunkEvent.class)
-				.to("splunk://tweet?username={{splunk-username}}&password={{splunk-password}}&writerType=submit&index=camel-tweets&sourceType=twitter-feed&source=camelhttp");
-	}
+    @Override
+    public void configure() throws Exception {
+        PropertiesComponent pc = new PropertiesComponent();
+        pc.setLocation("classpath:splunk-demo.properties");
+        getContext().addComponent("properties", pc);
+        from(
+             "twitter://search?type=polling&keywords=#music&delay=10&consumerKey={{consumerKey}}&consumerSecret={{consumerSecret}}&accessToken={{accessToken}}&accessTokenSecret={{accessTokenSecret}}")
+            .log("${body}").convertBodyTo(SplunkEvent.class)
+            .to("splunk://tweet?username={{splunk-username}}&password={{splunk-password}}&writerType=submit&index=camel-tweets&sourceType=twitter-feed&source=camelhttp");
+    }
 
 }
