@@ -12,9 +12,9 @@ public class Twitter2SplunkRoute extends RouteBuilder {
         pc.setLocation("classpath:splunk-demo.properties");
         getContext().addComponent("properties", pc);
         from(
-             "twitter://search?type=polling&keywords=#music&delay=10&consumerKey={{consumerKey}}&consumerSecret={{consumerSecret}}&accessToken={{accessToken}}&accessTokenSecret={{accessTokenSecret}}")
+             "twitter://search?type=polling&keywords=music&delay=10&consumerKey={{consumerKey}}&consumerSecret={{consumerSecret}}&accessToken={{accessToken}}&accessTokenSecret={{accessTokenSecret}}")
             .log("${body}").convertBodyTo(SplunkEvent.class)
-            .to("splunk://tweet?username={{splunk-username}}&password={{splunk-password}}&writerType=submit&index=camel-tweets&sourceType=twitter-feed&source=camelhttp");
+            .to("splunk://submit?username={{splunk-username}}&password={{splunk-password}}&index=camel-tweets&sourceType=twitter-feed&source=camelhttp");
     }
 
 }

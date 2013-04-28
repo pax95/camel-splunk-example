@@ -12,8 +12,8 @@ public class SplunkTwitterSearchRoute extends RouteBuilder {
         getContext().addComponent("properties", pc);
 
         from(
-             "splunk://twees?delay=5s&username={{splunk-username}}&password={{splunk-password}}&" + "searchMode=NORMAL&initEarliestTime=-10d&earliestTime=-10d&"
-                 + "search=search index=camel-tweets sourcetype=twitter-feed | top 10 from_user").log("${body}");
+             "splunk://normal?delay=5s&username={{splunk-username}}&password={{splunk-password}}&" + "initEarliestTime=-5m&"
+                 + "search=search index=camel-tweets sourcetype=twitter-feed").log("${body}");
     }
 
 }
