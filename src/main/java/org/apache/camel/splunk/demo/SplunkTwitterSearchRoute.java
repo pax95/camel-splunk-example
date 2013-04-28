@@ -12,7 +12,7 @@ public class SplunkTwitterSearchRoute extends RouteBuilder {
         getContext().addComponent("properties", pc);
 
         from(
-             "splunk://normal?delay=5s&username={{splunk-username}}&password={{splunk-password}}&" + "initEarliestTime=-5m&"
+             "splunk://realtime?delay=5s&username={{splunk-username}}&password={{splunk-password}}&initEarliestTime=rt-2m&"
                  + "search=search index=camel-tweets sourcetype=twitter-feed").log("${body}");
     }
 
