@@ -18,11 +18,6 @@
 			<artifactId>camel-twitter</artifactId>
 			<version>${camel-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-gson</artifactId>
-			<version>${camel-version}</version>
-		</dependency>
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -39,12 +34,6 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-splunk</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.splunk</groupId>
-					<artifactId>splunk</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
