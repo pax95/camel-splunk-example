@@ -9,11 +9,12 @@ import twitter4j.Status;
 public class Tweet2SplunkEvent {
     @Converter
     public static SplunkEvent convertTweet(Status status) {
-        SplunkEvent data = new SplunkEvent("twitter-message", "twitter");
+        SplunkEvent data = new SplunkEvent("twitter-message", null);
         data.addPair("source", status.getSource());
         data.addPair("from_user", status.getUser().getScreenName());
         data.addPair("in_reply_to", status.getInReplyToScreenName());
-        data.addPair("created_at", status.getCreatedAt());
+        data.addPair(SplunkEvent.COMMON_START_TIME, status.getCreatedAt());
+        data.addPair(SplunkEvent.COMMON_EVENT_ID, status.getId());
         data.addPair("text", status.getText());
         data.addPair("retweet_count", status.getRetweetCount());
         if (status.getPlace() != null) {
