@@ -10,7 +10,7 @@ public class Tweet2SplunkEvent {
     @Converter
     public static SplunkEvent convertTweet(Status status) {
         SplunkEvent data = new SplunkEvent("twitter-message", null);
-        data.addPair("source", status.getSource());
+        //data.addPair("source", status.getSource());
         data.addPair("from_user", status.getUser().getScreenName());
         data.addPair("in_reply_to", status.getInReplyToScreenName());
         data.addPair(SplunkEvent.COMMON_START_TIME, status.getCreatedAt());

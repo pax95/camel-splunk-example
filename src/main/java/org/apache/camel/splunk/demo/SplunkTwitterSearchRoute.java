@@ -13,7 +13,7 @@ public class SplunkTwitterSearchRoute extends RouteBuilder {
 
         from(
              "splunk://normal?consumer.bridgeErrorHandler=true&delay=5s&username={{splunk-username}}&password={{splunk-password}}&initEarliestTime=-2m&"
-                 + "search=search index=camel-tweets sourcetype=twitter-feed&count=40").log("${body}");
+                 + "search=search index=camel-tweets sourcetype=twitter-feed | fields *").bean(SplunkEventTest.class);
     }
 
 }
