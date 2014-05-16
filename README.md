@@ -2,14 +2,6 @@ camel-splunk-example
 ====================
 ## Setup Instructions
 
-## Clone Repository
-
-*  git clone https://github.com/pax95/camel-splunk-example.git
-
-## Build
-* Remember to compile and install the camel-splunk component into your local maven repo. first.
-  The component can be found at https://github.com/pax95/camel-splunk 
-*  navigate to root directory and run mvn clean install
 
 ## Install Splunk
 
